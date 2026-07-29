@@ -1,0 +1,175 @@
+---
+const jobs = [
+  {
+    title: 'DevOps Engineer',
+    org: 'DevMats LLC',
+    place: 'Remote',
+    dates: 'March 2024 – Current',
+    active: true,
+    bullets: [
+      'Cloud API development and DevOps work using Python, Bash, SSH, and Git.',
+      'Manage full-stack Linux servers deploying microservices with Ansible.',
+      'Build and deploy Docker images; configure High Availability containers on Proxmox.',
+    ],
+  },
+  {
+    title: 'Systems Administrator',
+    org: 'InMotion Hosting',
+    place: 'Remote',
+    dates: 'August 2020 – Current',
+    active: true,
+    bullets: [
+      'Administer servers in a fast-paced web hosting environment (Apache, NGINX, Tomcat, Node.js).',
+      'Configure Microsoft 365, Google Workspace, and Azure Active Directory for clients.',
+      'Troubleshoot servers for security incidents and general configuration issues.',
+    ],
+  },
+  {
+    title: 'Owner',
+    org: 'WolfDen Networks',
+    place: 'Forest, VA',
+    dates: 'January 2008 – Current',
+    active: true,
+    bullets: [
+      'Design and configure wired and wireless networks using Cisco and Unifi equipment.',
+      'Provide on-call IT services to mid- to large-scale businesses.',
+      'Maintain MySQL and Postgres databases on Linux/CentOS servers.',
+    ],
+  },
+  {
+    title: 'Branch Chief, Cybersecurity Engineering',
+    org: 'U.S. Coast Guard Auxiliary (National Staff)',
+    place: 'Washington, DC',
+    dates: 'February 2020 – December 2022',
+    active: false,
+    bullets: [
+      'Deployed a multi-factor authentication system using AWS Cognito and Microsoft Azure.',
+      'Managed routers, switches, IDS/IPS systems, and proxies to government-level security standards.',
+      'Provided security recommendations across other National Staff divisions.',
+    ],
+  },
+  {
+    title: 'Various Positions',
+    org: 'Amazon.com',
+    place: 'Seattle, WA',
+    dates: 'August 2018 – June 2020',
+    active: false,
+    bullets: [
+      'Facilitated enrollment in the Amazon Technical Academy for Fulfillment and Customer Service staff.',
+      'Built a laptop loaner program and an internal onboarding wiki for new hires.',
+      'Reduced cost overruns by 20% in the first year by tracking labor hours against product volume.',
+    ],
+  },
+  {
+    title: 'Flotilla Commander / Staff Officer',
+    org: 'U.S. Coast Guard Auxiliary',
+    place: 'Lynchburg, VA',
+    dates: 'February 2008 – December 2022',
+    active: false,
+    bullets: [
+      'Managed the Flotilla as Commander, reporting to the Division Commander.',
+      'Built a fully remote, paperless meeting-minutes and communications platform for members.',
+    ],
+  },
+  {
+    title: 'Webmaster (Volunteer)',
+    org: 'Virginia LGBTQ+ Network',
+    place: 'Remote',
+    dates: '2020 – Current',
+    active: true,
+    bullets: [
+      'Provide website support for a resource outlet serving LGBTQ+ residents of Virginia.',
+    ],
+  },
+];
+---
+<section id="experience">
+  <div class="wrap">
+    <span class="eyebrow">// 02 experience</span>
+    <h2 class="section-title">Connection log</h2>
+    <div class="jobs">
+      {jobs.map(job => (
+        <article class="job panel">
+          <div class="job-head">
+            <div>
+              <h3>{job.title}</h3>
+              <p class="org">{job.org} &middot; {job.place}</p>
+            </div>
+            <div class="meta">
+              <span class:list={["port-status", { live: job.active }]}>
+                {job.active ? 'ACTIVE' : 'ENDED'}
+              </span>
+              <span class="dates">{job.dates}</span>
+            </div>
+          </div>
+          <ul>
+            {job.bullets.map(b => <li>{b}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .jobs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .job {
+    padding: 1.5rem 1.75rem;
+  }
+  .job-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    border-bottom: 1px solid var(--blueprint-line);
+    padding-bottom: 0.9rem;
+    margin-bottom: 0.9rem;
+  }
+  .job h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.15em;
+  }
+  .org {
+    margin: 0;
+    color: var(--paper-dim);
+    font-size: 0.9rem;
+  }
+  .meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.3rem;
+  }
+  .port-status {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    padding: 0.15em 0.6em;
+    border-radius: 3px;
+    border: 1px solid var(--paper-dim);
+    color: var(--paper-dim);
+  }
+  .port-status.live {
+    border-color: var(--teal);
+    color: var(--teal);
+  }
+  .dates {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--paper-dim);
+  }
+  .job ul {
+    margin: 0;
+    padding-left: 1.2rem;
+  }
+  .job li {
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+  }
+</style>

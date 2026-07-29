@@ -1,0 +1,29 @@
+---
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="wrap footer-inner">
+    <span>&copy; {year} Sam LaMartina</span>
+    <span class="status-line"><span class="status-dot"></span>All systems operational</span>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--blueprint-line);
+    padding: 1.5rem 0 2.5rem;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--paper-dim);
+  }
+  .status-line {
+    display: flex;
+    align-items: center;
+  }
+</style>

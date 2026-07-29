@@ -1,0 +1,101 @@
+---
+const projects = [
+  {
+    tag: 'Government / Web',
+    title: 'USCG Aux Internet',
+    text: 'Web infrastructure and content management for the U.S. Coast Guard Auxiliary\'s online presence, with a cybersecurity- and availability-focused architecture.',
+    stack: ['Government', 'CMS', 'Security'],
+    href: null,
+  },
+  {
+    tag: 'Real Estate / Web',
+    title: 'Cozy Properties',
+    text: 'A full web presence for a local real estate operation — listings, contact flows, and a clean, maintainable backend.',
+    stack: ['WordPress', 'Web Dev', 'Client Work'],
+    href: null,
+  },
+  {
+    tag: 'Infrastructure / Business',
+    title: 'WolfDen Networks',
+    text: 'My own network services company — helpdesk support, residential and business IT infrastructure, network buildout, and cybersecurity for clients nationwide.',
+    stack: ['Networking', 'Cybersecurity', 'Business'],
+    href: 'https://wolfdennetworks.com',
+  },
+  {
+    tag: 'Nonprofit / Volunteer',
+    title: 'Virginia LGBTQ+ Network',
+    text: 'Ongoing volunteer web support for a resource network serving LGBTQ+ residents across Virginia — maintaining uptime, accessibility, and content updates.',
+    stack: ['Volunteer', 'WordPress', 'Accessibility'],
+    href: null,
+  },
+];
+---
+<section id="projects">
+  <div class="wrap">
+    <span class="eyebrow">// 06 projects</span>
+    <h2 class="section-title">Selected work</h2>
+    <div class="project-grid">
+      {projects.map(p => (
+        <div class="project panel">
+          <span class="project-tag">{p.tag}</span>
+          <h3>{p.title}</h3>
+          <p>{p.text}</p>
+          <div class="project-stack">
+            {p.stack.map(s => <span class="chip">{s}</span>)}
+          </div>
+          {p.href && <a class="project-link" href={p.href} target="_blank" rel="noopener noreferrer">Visit site ↗</a>}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .project {
+    padding: 1.5rem 1.6rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-tag {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--teal);
+  }
+  .project h3 {
+    font-size: 1.1rem;
+    margin: 0.5rem 0 0.5rem;
+  }
+  .project p {
+    font-size: 0.9rem;
+    color: var(--paper-dim);
+    margin: 0 0 1rem;
+    flex-grow: 1;
+  }
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+  }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.2em 0.6em;
+    border: 1px solid var(--blueprint-line);
+    border-radius: 3px;
+    color: var(--paper-dim);
+  }
+  .project-link {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    align-self: flex-start;
+  }
+</style>

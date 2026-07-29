@@ -1,0 +1,85 @@
+---
+const tiers = [
+  {
+    name: 'Residential',
+    price: '$100',
+    period: '/mo',
+    features: ['Hardware installation (computer or network)', 'Network configuration', 'Software installation', 'Helpdesk support', 'Residential only'],
+  },
+  {
+    name: 'Business',
+    price: '$200',
+    period: '/mo',
+    features: ['Security scanning', 'Installation & configuration', 'Patch management', 'Multi-user management', 'Network configuration', 'Maintenance included', 'Business only'],
+  },
+];
+---
+<section id="rates">
+  <div class="wrap">
+    <span class="eyebrow">// 07 freelance rates</span>
+    <h2 class="section-title">Support plans</h2>
+    <p class="rates-note">Provided by <a href="https://wolfdennetworks.com" target="_blank" rel="noopener noreferrer">WolfDen Networks</a>.</p>
+    <div class="tier-grid">
+      {tiers.map(t => (
+        <div class="tier panel">
+          <h3>{t.name}</h3>
+          <p class="price"><span class="amount">{t.price}</span><span class="period">{t.period}</span></p>
+          <ul>
+            {t.features.map(f => <li><span class="status-dot"></span>{f}</li>)}
+          </ul>
+          <a class="btn" href="#contact">Contact Me</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .rates-note {
+    font-size: 0.9rem;
+    color: var(--paper-dim);
+    margin-top: -0.5rem;
+  }
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .tier {
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .tier h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+  .price {
+    margin: 0 0 1.25rem;
+  }
+  .amount {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--amber);
+  }
+  .period {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--paper-dim);
+  }
+  .tier ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    flex-grow: 1;
+  }
+  .tier li {
+    font-size: 0.88rem;
+    margin: 0.45rem 0;
+  }
+  .tier .btn {
+    align-self: flex-start;
+  }
+</style>

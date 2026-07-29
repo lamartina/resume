@@ -1,0 +1,62 @@
+---
+const education = [
+  {
+    school: 'University of Maryland Global Campus',
+    place: 'Washington, DC',
+    dates: '2019 – Current',
+    detail: 'Continuing education in Computer Engineering, focused on Ethics and Cyber Security.',
+  },
+  {
+    school: 'cPanel University',
+    place: 'Houston, TX',
+    dates: '2016 – 2022',
+    detail: 'Continuing education courses in cPanel and Web Host Manager (WHM).',
+  },
+  {
+    school: 'Community College',
+    place: 'Remote',
+    dates: '2008 – 2020',
+    detail: 'Information Systems Analyst studies, focused on Computer Engineering and Cybersecurity.',
+  },
+];
+---
+<section id="education">
+  <div class="wrap">
+    <span class="eyebrow">// 03 education</span>
+    <h2 class="section-title">Training records</h2>
+    <div class="edu-list">
+      {education.map(e => (
+        <div class="edu panel">
+          <h3>{e.school}</h3>
+          <p class="edu-meta">{e.place} &middot; {e.dates}</p>
+          <p class="edu-detail">{e.detail}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .edu-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+  .edu {
+    padding: 1.4rem 1.6rem;
+  }
+  .edu h3 {
+    font-size: 1.05rem;
+  }
+  .edu-meta {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--paper-dim);
+    margin: 0.2em 0 0.8em;
+  }
+  .edu-detail {
+    margin: 0;
+    font-size: 0.92rem;
+  }
+</style>

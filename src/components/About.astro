@@ -1,0 +1,105 @@
+---
+const services = [
+  { icon: '⚙️', title: 'Server Configuration', text: 'Setup, installation, and connection of servers and network devices with the OS you need.' },
+  { icon: '📡', title: 'Monitoring', text: 'Visibility and activity tracking on your servers — performance metrics and uptime reporting.' },
+  { icon: '🔐', title: 'Cyber Security', text: 'Protecting your systems and data from unauthorized or criminal use.' },
+  { icon: '👥', title: 'User Management', text: 'Efficient management of users, accounts, and access to IT resources.' },
+];
+---
+<section id="about">
+  <div class="wrap">
+    <span class="eyebrow">// 01 about</span>
+    <h2 class="section-title">Howdy, partner.</h2>
+    <p class="lede">
+      I'm a systems administrator based in West Virginia, with rich experience managing, debugging,
+      installing, and configuring both hardware and software appliances needed for safe, secure
+      operations. Over 12 years I've worked across server virtualization, high-availability nodes,
+      Python and Bash automation, and database administration &mdash; comfortable with VMware, Proxmox,
+      Docker, Ansible, and GitHub.
+    </p>
+    <p class="lede">
+      Beyond the terminal, I'm a music lover and craft beer &amp; cider aficionado who's somehow
+      managed to visit all 50 states. I also volunteer as Webmaster for the Virginia LGBTQ+ Network
+      &mdash; because community matters.
+    </p>
+    <div class="facts panel">
+      <div class="fact"><span class="fact-label">Residence</span><span>West Virginia</span></div>
+      <div class="fact"><span class="fact-label">Freelance</span><span><span class="status-dot"></span>Available</span></div>
+      <div class="fact"><span class="fact-label">Focus</span><span>Linux, networking, cyber security</span></div>
+    </div>
+
+    <h3 class="services-heading">What I Do</h3>
+    <div class="services">
+      {services.map(s => (
+        <div class="service panel">
+          <span class="service-icon" aria-hidden="true">{s.icon}</span>
+          <h4>{s.title}</h4>
+          <p>{s.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .lede {
+    max-width: 60ch;
+    color: var(--paper);
+    font-size: 1.05rem;
+  }
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    margin-top: 2rem;
+  }
+  .fact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 1.25rem 1.5rem;
+    border-right: 1px solid var(--blueprint-line);
+  }
+  .fact:last-child {
+    border-right: none;
+  }
+  .fact-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+  }
+  .services-heading {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--paper-dim);
+    margin-top: 2.5rem;
+  }
+  .services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1.1rem;
+    margin-top: 1rem;
+  }
+  .service {
+    padding: 1.3rem 1.4rem;
+  }
+  .service-icon {
+    font-size: 1.4rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .service h4 {
+    font-family: var(--font-display);
+    color: #fff;
+    margin: 0 0 0.4rem;
+    font-size: 1rem;
+  }
+  .service p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--paper-dim);
+  }
+</style>

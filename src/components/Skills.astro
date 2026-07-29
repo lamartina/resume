@@ -1,0 +1,106 @@
+---
+const proficiency = [
+  { label: 'Linux', value: 90 },
+  { label: 'Web Server Configuration', value: 85 },
+  { label: 'Amazon AWS', value: 70 },
+  { label: 'Microsoft Azure', value: 60 },
+];
+
+const groups = [
+  { label: 'Coding', items: ['Python', 'Bash', 'PHP', 'MySQL'] },
+  { label: 'Tools & Platforms', items: ['JIRA', 'Atlassian', 'Google Data Studio', 'Docker', 'Ansible'] },
+  { label: 'Focus Areas', items: ['Network Configuration & Buildout', 'Search Engine Optimization', 'Linux & Windows Management'] },
+  { label: 'Languages', items: ['English', 'German'] },
+];
+---
+<section id="skills">
+  <div class="wrap">
+    <span class="eyebrow">// 04 skills</span>
+    <h2 class="section-title">System status</h2>
+
+    <div class="meters panel">
+      {proficiency.map(p => (
+        <div class="meter-row">
+          <span class="meter-label">{p.label}</span>
+          <div class="meter-track">
+            <div class="meter-fill" style={`width: ${p.value}%`}></div>
+          </div>
+          <span class="meter-value">{p.value}%</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="groups">
+      {groups.map(g => (
+        <div class="group panel">
+          <h3>{g.label}</h3>
+          <ul>
+            {g.items.map(item => <li><span class="status-dot"></span>{item}</li>)}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .meters {
+    padding: 1.5rem 1.75rem;
+    margin-top: 2rem;
+  }
+  .meter-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr auto;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.6rem 0;
+  }
+  .meter-row + .meter-row {
+    border-top: 1px solid var(--blueprint-line);
+  }
+  .meter-label {
+    font-size: 0.9rem;
+  }
+  .meter-track {
+    height: 6px;
+    background: var(--panel-navy-light);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal), var(--amber));
+    border-radius: 3px;
+  }
+  .meter-value {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--paper-dim);
+    text-align: right;
+  }
+  .groups {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+  .group {
+    padding: 1.3rem 1.5rem;
+  }
+  .group h3 {
+    font-size: 0.95rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--paper-dim);
+  }
+  .group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .group li {
+    margin: 0.4rem 0;
+    font-size: 0.92rem;
+  }
+</style>
