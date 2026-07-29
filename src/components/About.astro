@@ -1,105 +1,231 @@
 ---
-const services = [
-  { icon: '⚙️', title: 'Server Configuration', text: 'Setup, installation, and connection of servers and network devices with the OS you need.' },
-  { icon: '📡', title: 'Monitoring', text: 'Visibility and activity tracking on your servers — performance metrics and uptime reporting.' },
-  { icon: '🔐', title: 'Cyber Security', text: 'Protecting your systems and data from unauthorized or criminal use.' },
-  { icon: '👥', title: 'User Management', text: 'Efficient management of users, accounts, and access to IT resources.' },
-];
 ---
-<section id="about">
-  <div class="wrap">
-    <span class="eyebrow">// 01 about</span>
-    <h2 class="section-title">Howdy, partner.</h2>
-    <p class="lede">
-      I'm a systems administrator based in West Virginia, with rich experience managing, debugging,
-      installing, and configuring both hardware and software appliances needed for safe, secure
-      operations. Over 12 years I've worked across server virtualization, high-availability nodes,
-      Python and Bash automation, and database administration &mdash; comfortable with VMware, Proxmox,
-      Docker, Ansible, and GitHub.
-    </p>
-    <p class="lede">
-      Beyond the terminal, I'm a music lover and craft beer &amp; cider aficionado who's somehow
-      managed to visit all 50 states. I also volunteer as Webmaster for the Virginia LGBTQ+ Network
-      &mdash; because community matters.
-    </p>
-    <div class="facts panel">
-      <div class="fact"><span class="fact-label">Residence</span><span>West Virginia</span></div>
-      <div class="fact"><span class="fact-label">Freelance</span><span><span class="status-dot"></span>Available</span></div>
-      <div class="fact"><span class="fact-label">Focus</span><span>Linux, networking, cyber security</span></div>
+<section id="about" class="about section">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-num">01</span>
+      <span class="label-text">About</span>
     </div>
 
-    <h3 class="services-heading">What I Do</h3>
-    <div class="services">
-      {services.map(s => (
-        <div class="service panel">
-          <span class="service-icon" aria-hidden="true">{s.icon}</span>
-          <h4>{s.title}</h4>
-          <p>{s.text}</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2 class="section-title">The person behind<br /><em>the stack.</em></h2>
+        <p>
+          I'm a system administrator and DevOps engineer from Moundsville, WV with over 15 years
+          of hands-on experience in network buildout, server configuration, and cybersecurity.
+          I believe in infrastructure that just <em>works</em> — secure, observable, and maintainable.
+        </p>
+        <p>
+          Beyond the terminal, I'm a music lover, craft beer &amp; cider aficionado, and someone
+          who's somehow managed to visit all 50 states. I also volunteer as Webmaster for the
+          Virginia LGBTQ+ Network — because community matters.
+        </p>
+        <div class="about-contact-info">
+          <div class="info-row">
+            <span class="info-label">Location</span>
+            <span class="info-value">Moundsville, WV</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Email</span>
+            <a href="mailto:me@srlamartina.com" class="info-value">me@srlamartina.com</a>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Phone</span>
+            <a href="tel:+19706660655" class="info-value">+1 (970) 666-0655</a>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Freelance</span>
+            <span class="info-value available">Available ✓</span>
+          </div>
         </div>
-      ))}
+      </div>
+
+      <div class="services-grid">
+        <h3 class="services-heading">What I Do</h3>
+        <div class="services">
+          <div class="service-card">
+            <div class="service-icon">⚙️</div>
+            <h4>Server Configuration</h4>
+            <p>Setup, installation, and connection of servers and network devices with the OSes you need.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">📡</div>
+            <h4>Monitoring</h4>
+            <p>Visibility and activity tracking on your servers — performance metrics and uptime reporting.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🔐</div>
+            <h4>Cyber Security</h4>
+            <p>Protecting your company from unauthorized or criminal use of electronic systems and data.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">👥</div>
+            <h4>User Management</h4>
+            <p>Efficient management of users, accounts, and their access to various IT resources.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .lede {
-    max-width: 60ch;
-    color: var(--paper);
-    font-size: 1.05rem;
+  .section {
+    padding: 7rem 0;
   }
-  .facts {
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .label-num {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .label-text {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .about-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    margin-top: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
   }
-  .fact {
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .about-text p {
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    line-height: 1.8;
+    font-size: 0.97rem;
+  }
+
+  .about-contact-info {
+    margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    gap: 0.3rem;
-    padding: 1.25rem 1.5rem;
-    border-right: 1px solid var(--blueprint-line);
+    gap: 0.75rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
   }
-  .fact:last-child {
-    border-right: none;
-  }
-  .fact-label {
+
+  .info-row {
+    display: flex;
+    gap: 1.5rem;
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 0.8rem;
+  }
+
+  .info-label {
+    width: 80px;
+    color: var(--text-dim);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: var(--paper-dim);
+    font-size: 0.7rem;
+    flex-shrink: 0;
   }
+
+  .info-value {
+    color: var(--text-muted);
+  }
+
+  .info-value.available {
+    color: var(--accent-2);
+  }
+
+  /* Services */
   .services-heading {
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--paper-dim);
-    margin-top: 2.5rem;
+    color: var(--text-dim);
+    margin-bottom: 1.5rem;
   }
+
   .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 1.1rem;
-    margin-top: 1rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
   }
-  .service {
-    padding: 1.3rem 1.4rem;
+
+  .service-card {
+    background: var(--bg);
+    padding: 1.5rem;
+    transition: background 0.2s;
   }
+
+  .service-card:hover {
+    background: var(--bg-2);
+  }
+
   .service-icon {
-    font-size: 1.4rem;
-    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-card h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
     margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
   }
-  .service h4 {
-    font-family: var(--font-display);
-    color: #fff;
-    margin: 0 0 0.4rem;
-    font-size: 1rem;
+
+  .service-card p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.6;
   }
-  .service p {
-    margin: 0;
-    font-size: 0.85rem;
-    color: var(--paper-dim);
+
+  @media (max-width: 900px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .services {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

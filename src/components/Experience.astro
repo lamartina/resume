@@ -1,175 +1,418 @@
 ---
 const jobs = [
   {
-    title: 'DevOps Engineer',
-    org: 'DevMats LLC',
-    place: 'Remote',
-    dates: 'March 2024 – Current',
-    active: true,
-    bullets: [
-      'Cloud API development and DevOps work using Python, Bash, SSH, and Git.',
-      'Manage full-stack Linux servers deploying microservices with Ansible.',
-      'Build and deploy Docker images; configure High Availability containers on Proxmox.',
-    ],
+    period: "2023 – Present",
+    title: "DevOps Engineer",
+    company: "DevMats",
+    description: "Streamlining development pipelines and infrastructure workflows. Building and maintaining CI/CD systems, container orchestration, and cloud infrastructure for a growing engineering organization.",
+    tags: ["DevOps", "CI/CD", "Cloud", "Infrastructure"]
   },
   {
-    title: 'Systems Administrator',
-    org: 'InMotion Hosting',
-    place: 'Remote',
-    dates: 'August 2020 – Current',
-    active: true,
-    bullets: [
-      'Administer servers in a fast-paced web hosting environment (Apache, NGINX, Tomcat, Node.js).',
-      'Configure Microsoft 365, Google Workspace, and Azure Active Directory for clients.',
-      'Troubleshoot servers for security incidents and general configuration issues.',
-    ],
+    period: "2020 – Present",
+    title: "System Administrator",
+    company: "InMotion Hosting",
+    description: "Solving complex problems related to dedicated servers, high availability VPS nodes, patch maintenance, website development, and malware mitigation at scale for thousands of clients.",
+    tags: ["Linux", "cPanel/WHM", "Malware Mitigation", "Patch Management"]
   },
   {
-    title: 'Owner',
-    org: 'WolfDen Networks',
-    place: 'Forest, VA',
-    dates: 'January 2008 – Current',
-    active: true,
-    bullets: [
-      'Design and configure wired and wireless networks using Cisco and Unifi equipment.',
-      'Provide on-call IT services to mid- to large-scale businesses.',
-      'Maintain MySQL and Postgres databases on Linux/CentOS servers.',
-    ],
+    period: "2008 – Present",
+    title: "Network Engineer",
+    company: "WolfDen Networks",
+    description: "Providing helpdesk and user support to local and national companies, alongside robust network buildout plans and cybersecurity practices for clients across all 50 states.",
+    tags: ["Networking", "Helpdesk", "Cybersecurity", "On-site Support"]
   },
   {
-    title: 'Branch Chief, Cybersecurity Engineering',
-    org: 'U.S. Coast Guard Auxiliary (National Staff)',
-    place: 'Washington, DC',
-    dates: 'February 2020 – December 2022',
-    active: false,
-    bullets: [
-      'Deployed a multi-factor authentication system using AWS Cognito and Microsoft Azure.',
-      'Managed routers, switches, IDS/IPS systems, and proxies to government-level security standards.',
-      'Provided security recommendations across other National Staff divisions.',
-    ],
+    period: "2020 – 2022",
+    title: "Branch Chief, Cybersecurity Engineering",
+    company: "United States Coast Guard Auxiliary",
+    description: "Provided cybersecurity practices and hands-on assistance to the United States Coast Guard Auxiliary, strengthening their digital infrastructure and security posture.",
+    tags: ["Government", "Cybersecurity", "Policy", "Volunteer"]
   },
   {
-    title: 'Various Positions',
-    org: 'Amazon.com',
-    place: 'Seattle, WA',
-    dates: 'August 2018 – June 2020',
-    active: false,
-    bullets: [
-      'Facilitated enrollment in the Amazon Technical Academy for Fulfillment and Customer Service staff.',
-      'Built a laptop loaner program and an internal onboarding wiki for new hires.',
-      'Reduced cost overruns by 20% in the first year by tracking labor hours against product volume.',
-    ],
+    period: "2020 – Present",
+    title: "Webmaster",
+    company: "Virginia LGBTQ+ Network",
+    description: "Volunteering website support and maintenance for a critical resource outlet serving LGBTQ+ residents of Virginia — keeping their digital presence accessible and reliable.",
+    tags: ["Web", "Volunteer", "Community", "WordPress"]
+  }
+];
+
+const education = [
+  {
+    period: "2019 – Present",
+    title: "Computer Engineering — Ethics & Cyber Security",
+    institution: "University of Maryland Global Campus",
+    location: "Washington, DC"
   },
   {
-    title: 'Flotilla Commander / Staff Officer',
-    org: 'U.S. Coast Guard Auxiliary',
-    place: 'Lynchburg, VA',
-    dates: 'February 2008 – December 2022',
-    active: false,
-    bullets: [
-      'Managed the Flotilla as Commander, reporting to the Division Commander.',
-      'Built a fully remote, paperless meeting-minutes and communications platform for members.',
-    ],
+    period: "2016 – 2022",
+    title: "cPanel & WHM Continuing Education",
+    institution: "cPanel University",
+    location: "Houston, TX"
   },
   {
-    title: 'Webmaster (Volunteer)',
-    org: 'Virginia LGBTQ+ Network',
-    place: 'Remote',
-    dates: '2020 – Current',
-    active: true,
-    bullets: [
-      'Provide website support for a resource outlet serving LGBTQ+ residents of Virginia.',
-    ],
-  },
+    period: "2008 – 2020",
+    title: "Information Systems Analysis — Computer Engineering & CyberSecurity",
+    institution: "Community College",
+    location: "Remote"
+  }
 ];
 ---
-<section id="experience">
-  <div class="wrap">
-    <span class="eyebrow">// 02 experience</span>
-    <h2 class="section-title">Connection log</h2>
-    <div class="jobs">
-      {jobs.map(job => (
-        <article class="job panel">
-          <div class="job-head">
-            <div>
-              <h3>{job.title}</h3>
-              <p class="org">{job.org} &middot; {job.place}</p>
+
+<section id="experience" class="section">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-num">02</span>
+      <span class="label-text">Experience</span>
+    </div>
+
+    <div class="exp-grid">
+      <div>
+        <h2 class="section-title">Work<br /><em>History</em></h2>
+        <div class="timeline">
+          {jobs.map((job, i) => (
+            <div class="timeline-item">
+              <div class="timeline-line"></div>
+              <div class="timeline-content">
+                <span class="timeline-period">{job.period}</span>
+                <h3 class="job-title">{job.title}</h3>
+                <span class="job-company">{job.company}</span>
+                <p class="job-desc">{job.description}</p>
+                <div class="job-tags">
+                  {job.tags.map(tag => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div class="meta">
-              <span class:list={["port-status", { live: job.active }]}>
-                {job.active ? 'ACTIVE' : 'ENDED'}
-              </span>
-              <span class="dates">{job.dates}</span>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h2 class="section-title">Education &<br /><em>Certs</em></h2>
+        <div class="edu-list">
+          {education.map(edu => (
+            <div class="edu-item">
+              <span class="edu-period">{edu.period}</span>
+              <h4 class="edu-title">{edu.title}</h4>
+              <span class="edu-institution">{edu.institution} — {edu.location}</span>
+            </div>
+          ))}
+        </div>
+
+        <div class="pricing-note">
+          <h3 class="pricing-heading">Freelance Rates</h3>
+          <div class="pricing-cards">
+            <div class="price-card">
+              <div class="price-type">Residential</div>
+              <div class="price-amount"><span>$</span>100<span>/mo</span></div>
+              <ul class="price-features">
+                <li>Hardware Installation</li>
+                <li>Network Configuration</li>
+                <li>Software Installation</li>
+                <li>Helpdesk Support</li>
+              </ul>
+              <span class="price-provider">via WolfDen Networks</span>
+            </div>
+            <div class="price-card featured">
+              <div class="price-type">Business</div>
+              <div class="price-amount"><span>$</span>200<span>/mo</span></div>
+              <ul class="price-features">
+                <li>Security Scanning</li>
+                <li>Install &amp; Configuration</li>
+                <li>Patch Management</li>
+                <li>Multi-User Management</li>
+                <li>Network Configuration</li>
+                <li>Maintenance Included</li>
+              </ul>
+              <span class="price-provider">via WolfDen Networks</span>
             </div>
           </div>
-          <ul>
-            {job.bullets.map(b => <li>{b}</li>)}
-          </ul>
-        </article>
-      ))}
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <style>
-  .jobs {
+  .section {
+    padding: 7rem 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-label {
     display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-    margin-top: 2rem;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
   }
-  .job {
-    padding: 1.5rem 1.75rem;
-  }
-  .job-head {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    border-bottom: 1px solid var(--blueprint-line);
-    padding-bottom: 0.9rem;
-    margin-bottom: 0.9rem;
-  }
-  .job h3 {
-    font-size: 1.1rem;
-    margin-bottom: 0.15em;
-  }
-  .org {
-    margin: 0;
-    color: var(--paper-dim);
-    font-size: 0.9rem;
-  }
-  .meta {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.3rem;
-  }
-  .port-status {
+
+  .label-num {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    letter-spacing: 0.08em;
-    padding: 0.15em 0.6em;
-    border-radius: 3px;
-    border: 1px solid var(--paper-dim);
-    color: var(--paper-dim);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
   }
-  .port-status.live {
-    border-color: var(--teal);
-    color: var(--teal);
+
+  .label-text {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
   }
-  .dates {
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .exp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* Timeline */
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 1px 1fr;
+    gap: 1.5rem;
+    padding-bottom: 2.5rem;
+    position: relative;
+  }
+
+  .timeline-line {
+    width: 1px;
+    background: var(--border);
+    position: relative;
+  }
+
+  .timeline-line::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  .timeline-period {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .job-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.2rem;
+  }
+
+  .job-company {
     font-family: var(--font-mono);
     font-size: 0.78rem;
-    color: var(--paper-dim);
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.75rem;
   }
-  .job ul {
-    margin: 0;
-    padding-left: 1.2rem;
+
+  .job-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
   }
-  .job li {
-    margin: 0.3rem 0;
-    font-size: 0.95rem;
+
+  .job-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
+  }
+
+  /* Education */
+  .edu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .edu-item {
+    border-left: 2px solid var(--border);
+    padding-left: 1.25rem;
+    transition: border-color 0.2s;
+  }
+
+  .edu-item:hover {
+    border-color: var(--accent);
+  }
+
+  .edu-period {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .edu-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+
+  .edu-institution {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+
+  /* Pricing */
+  .pricing-heading {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 1.25rem;
+  }
+
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .price-card {
+    background: var(--bg);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .price-card.featured {
+    background: var(--bg-2);
+  }
+
+  .price-type {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .price-amount {
+    font-family: var(--font-sans);
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+    line-height: 1;
+    margin: 0.25rem 0;
+  }
+
+  .price-amount span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .price-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex: 1;
+  }
+
+  .price-features li {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .price-features li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.7rem;
+  }
+
+  .price-provider {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 900px) {
+    .exp-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .pricing-cards {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

@@ -1,101 +1,208 @@
 ---
 const projects = [
   {
-    tag: 'Government / Web',
-    title: 'USCG Aux Internet',
-    text: 'Web infrastructure and content management for the U.S. Coast Guard Auxiliary\'s online presence, with a cybersecurity- and availability-focused architecture.',
-    stack: ['Government', 'CMS', 'Security'],
-    href: null,
+    title: "USCG Aux Internet",
+    category: "Government / Web",
+    description: "Web infrastructure and content management for the United States Coast Guard Auxiliary's online presence. Cybersecurity and availability-focused architecture.",
+    tags: ["Government", "CMS", "Security"],
+    link: "#"
   },
   {
-    tag: 'Real Estate / Web',
-    title: 'Cozy Properties',
-    text: 'A full web presence for a local real estate operation — listings, contact flows, and a clean, maintainable backend.',
-    stack: ['WordPress', 'Web Dev', 'Client Work'],
-    href: null,
+    title: "Cozy Properties",
+    category: "Real Estate / Web",
+    description: "A full web presence built for a local real estate operation — featuring listings, contact flows, and a clean, maintainable backend.",
+    tags: ["WordPress", "Web Dev", "Client Work"],
+    link: "#"
   },
   {
-    tag: 'Infrastructure / Business',
-    title: 'WolfDen Networks',
-    text: 'My own network services company — helpdesk support, residential and business IT infrastructure, network buildout, and cybersecurity for clients nationwide.',
-    stack: ['Networking', 'Cybersecurity', 'Business'],
-    href: 'https://wolfdennetworks.com',
+    title: "WolfDen Networks",
+    category: "Infrastructure / Business",
+    description: "Running my own network services company providing helpdesk support, residential and business IT infrastructure, network buildout, and cybersecurity for clients nationwide.",
+    tags: ["Networking", "Cybersecurity", "Business"],
+    link: "https://wolfdennetworks.com"
   },
   {
-    tag: 'Nonprofit / Volunteer',
-    title: 'Virginia LGBTQ+ Network',
-    text: 'Ongoing volunteer web support for a resource network serving LGBTQ+ residents across Virginia — maintaining uptime, accessibility, and content updates.',
-    stack: ['Volunteer', 'WordPress', 'Accessibility'],
-    href: null,
-  },
+    title: "Virginia LGBTQ+ Network",
+    category: "Nonprofit / Volunteer",
+    description: "Ongoing volunteer web support for a critical resource network serving LGBTQ+ residents across Virginia. Maintaining uptime, accessibility, and content updates.",
+    tags: ["Volunteer", "WordPress", "Accessibility"],
+    link: "#"
+  }
 ];
 ---
-<section id="projects">
-  <div class="wrap">
-    <span class="eyebrow">// 06 projects</span>
-    <h2 class="section-title">Selected work</h2>
-    <div class="project-grid">
-      {projects.map(p => (
-        <div class="project panel">
-          <span class="project-tag">{p.tag}</span>
-          <h3>{p.title}</h3>
-          <p>{p.text}</p>
-          <div class="project-stack">
-            {p.stack.map(s => <span class="chip">{s}</span>)}
+
+<section id="projects" class="section">
+  <div class="container">
+    <div class="section-label">
+      <span class="label-num">04</span>
+      <span class="label-text">Projects</span>
+    </div>
+
+    <h2 class="section-title">Selected<br /><em>Work</em></h2>
+
+    <div class="projects-grid">
+      {projects.map((p, i) => (
+        <a href={p.link} class="project-card" target={p.link !== '#' ? '_blank' : '_self'}>
+          <div class="project-num">0{i + 1}</div>
+          <div class="project-body">
+            <span class="project-category">{p.category}</span>
+            <h3 class="project-title">{p.title}</h3>
+            <p class="project-desc">{p.description}</p>
+            <div class="project-tags">
+              {p.tags.map(t => <span class="tag">{t}</span>)}
+            </div>
           </div>
-          {p.href && <a class="project-link" href={p.href} target="_blank" rel="noopener noreferrer">Visit site ↗</a>}
-        </div>
+          <div class="project-arrow">↗</div>
+        </a>
       ))}
     </div>
   </div>
 </section>
 
 <style>
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
-    margin-top: 2rem;
+  .section {
+    padding: 7rem 0;
+    border-top: 1px solid var(--border);
   }
-  .project {
-    padding: 1.5rem 1.6rem;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-label {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
   }
-  .project-tag {
+
+  .label-num {
     font-family: var(--font-mono);
     font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .label-text {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--teal);
+    color: var(--text-muted);
   }
-  .project h3 {
-    font-size: 1.1rem;
-    margin: 0.5rem 0 0.5rem;
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
   }
-  .project p {
-    font-size: 0.9rem;
-    color: var(--paper-dim);
-    margin: 0 0 1rem;
-    flex-grow: 1;
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 3rem;
   }
-  .project-stack {
+
+  .section-title em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .project-card {
+    background: var(--bg);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 40px 1fr 24px;
+    gap: 1rem;
+    align-items: start;
+    transition: background 0.2s;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .project-card:hover {
+    background: var(--bg-2);
+    opacity: 1;
+  }
+
+  .project-card:hover .project-arrow {
+    color: var(--accent);
+    transform: translate(3px, -3px);
+  }
+
+  .project-num {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    padding-top: 0.2rem;
+    letter-spacing: 0.05em;
+  }
+
+  .project-category {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .project-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.6rem;
+  }
+
+  .project-desc {
+    font-size: 0.83rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.4rem;
-    margin-bottom: 0.75rem;
   }
-  .chip {
+
+  .tag {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
-    padding: 0.2em 0.6em;
-    border: 1px solid var(--blueprint-line);
-    border-radius: 3px;
-    color: var(--paper-dim);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.5rem;
+    border-radius: 2px;
   }
-  .project-link {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    align-self: flex-start;
+
+  .project-arrow {
+    font-size: 1rem;
+    color: var(--text-dim);
+    transition: all 0.2s;
+    padding-top: 0.1rem;
+  }
+
+  @media (max-width: 700px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

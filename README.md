@@ -1,58 +1,67 @@
-# srlamartina.com
+# Sam LaMartina — Resume Website
 
-Personal resume site for Sam LaMartina, built with [Astro](https://astro.build) and deployed to GitHub Pages.
+A modern, dark-themed personal resume site built with [Astro](https://astro.build).
 
-## Local development
+## 🚀 Getting Started
+
+**Prerequisites:** Node.js 18+
 
 ```bash
+# Install dependencies
 npm install
+
+# Start dev server (localhost:4321)
 npm run dev
-```
 
-Visit `http://localhost:4321`.
-
-## Build
-
-```bash
+# Build for production
 npm run build
+
+# Preview production build
+npm run preview
 ```
 
-Static output goes to `dist/`. `npm run preview` serves that build locally.
+## 📁 Project Structure
 
-## Deploying to GitHub Pages
+```
+src/
+  layouts/
+    Layout.astro        — HTML shell, fonts, global CSS
+  pages/
+    index.astro         — Single-page entry point
+  components/
+    Nav.astro           — Fixed navigation bar
+    Hero.astro          — Landing section with terminal widget
+    About.astro         — Bio, services, contact info
+    Experience.astro    — Work history, education, pricing
+    Skills.astro        — Skill bars, code languages, tools
+    Projects.astro      — Portfolio projects
+    Contact.astro       — Contact form + footer
+public/
+  favicon.svg
+  srlamartina-resume.pdf  ← Add your PDF resume here!
+```
 
-1. **Create a GitHub repo** (any name — e.g. `resume-site`) and push this project to its `main` branch.
-2. **Enable Pages via GitHub Actions**: in the repo, go to **Settings → Pages**, and under
-   "Build and deployment" set **Source** to **GitHub Actions** (not "Deploy from a branch").
-3. **Push to `main`.** The workflow at `.github/workflows/deploy.yml` will install dependencies,
-   run `astro build`, and publish `dist/` automatically. Check the **Actions** tab to watch progress.
-4. **Point the domain at GitHub Pages.** At your domain registrar, set:
-   - Four **A records** for the root domain (`srlamartina.com`) pointing to:
-     `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - (Optional) a **CNAME record** for `www` pointing to `<your-github-username>.github.io`
-5. **Set the custom domain in repo settings.** Settings → Pages → enter `srlamartina.com` in the
-   "Custom domain" field. GitHub will verify it and provision HTTPS automatically (can take up to
-   ~24 hours, usually much faster). The `public/CNAME` file in this repo already contains
-   `srlamartina.com`, so this step just confirms it in GitHub's UI.
-6. **Add a firewall via Cloudflare (optional but recommended).** Move `srlamartina.com`'s
-   nameservers to Cloudflare (free plan), re-add the same DNS records there, and enable the
-   orange-cloud proxy. Set **SSL/TLS mode to "Full"** (not "Flexible") to avoid a redirect loop
-   with GitHub's own HTTPS. This is what gives you WAF/DDoS protection — GitHub Pages DNS alone
-   doesn't include it.
+## ✏️ Customizing Content
 
-## Updating content
+All content is defined directly in the `.astro` component files — no CMS or external data source. Look for the `---` frontmatter sections at the top of each component to update jobs, projects, skills, etc.
 
-- **Resume text**: edit the arrays at the top of the components in `src/components/`
-  (`Experience.astro`, `Education.astro`, `Skills.astro`, `Contact.astro`).
-- **Resume PDF**: replace `public/resume.pdf` with an updated file of the same name — no code
-  changes needed, it's served as a static asset at `/resume.pdf`.
-- **Publish changes**: commit and push to `main`; the GitHub Actions workflow rebuilds and
-  redeploys automatically.
+## 📄 Adding Your Resume PDF
 
-## Note on the previous site
+Drop your resume PDF into the `public/` folder as `srlamartina-resume.pdf` so the "Download CV" button works.
 
-The live WordPress site at srlamartina.com currently has a "Blog" section containing
-SEO-spam-style posts (gibberish, unrelated foreign-language and gambling terms) — a common sign
-of a compromised WordPress install. That content was intentionally **not** carried over here.
-Worth checking whether the old WordPress installation is still exposed anywhere and should be
-taken down or cleaned up.
+## 🎨 Theming
+
+All colors and fonts are CSS variables in `src/layouts/Layout.astro`:
+
+```css
+:root {
+  --bg:       #080c14;
+  --accent:   #00dcb4;  /* teal */
+  --accent-2: #0090ff;  /* blue */
+  ...
+}
+```
+
+## 🌐 Deploying
+
+Works out of the box on [Netlify](https://netlify.com), [Vercel](https://vercel.com), or [Cloudflare Pages](https://pages.cloudflare.com) — just connect your repo and deploy.
