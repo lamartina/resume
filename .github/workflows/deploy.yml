@@ -23,6 +23,8 @@ jobs:
 
       - name: Install, build, and upload
         uses: withastro/action@v3
+        with:
+          package-manager: npm@latest
         # Defaults to npm; add `with: { path, node-version, package-manager }`
         # if your repo layout or Node version needs to be overridden.
 
